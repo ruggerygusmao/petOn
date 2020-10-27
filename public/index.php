@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -9,6 +18,8 @@
       <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+=======
+>>>>>>> df024a074cd725e389947d3a768451876f340127
     <title>|| Projeto petOn ||</title>
 </head>
 <body class="grey darken-3">

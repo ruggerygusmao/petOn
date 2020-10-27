@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     background-image: url('../img/pets.jpg');
     background-size: cover;
@@ -9,3 +10,23 @@ body{
     margin-top: 130px;
     background: rgba(0, 0, 0, .6);
 }
+=======
+/*Ativa a barra de progresso antes de exibir o formulario de cadastro de usuário*/
+.progress{
+    width:50%;
+    margin:0 auto;
+    margin-top:20%;
+}
+/*Ativa a barra de progresso antes de exibir o formulario de cadastro de usuário*/
+@media only screen and (max-width:924px){
+       .progress{
+          width:70%;
+          margin:0 auto;
+          margin-top:60%;
+        }
+}
+/*Aumenta a margem entre o topo e o card de formulário do cadastro de usuário*/
+.formcadastrousuario{
+    margin-top: 5%;
+}
+>>>>>>> df024a074cd725e389947d3a768451876f340127
