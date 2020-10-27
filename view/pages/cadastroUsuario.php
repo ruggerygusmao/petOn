@@ -22,17 +22,16 @@
         <div class="row">
             <div class="col l3 m3 s12"></div>
                 <div class="col l6 m6 s12">
-                    <form action="" method="POST">
-
+                    <form action="../../config/inserirUsuario.php" method="POST">
                         <div class="card-panel z-depth-5">
                             <p class="center"><i class="large material-icons">pets</i></p>
                             <h5 class="center">Crie a sua conta. É grátis!</h5>
-
+                            <div class="alert" id="alert"></div>
                             <br>
 
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" name="nome" id="nome" class="validate">
+                            <input type="text" name="nome" id="nome" class="validate" autocomplete="off">
                             <label for="nome">Digite seu primeiro nome</label>
                         </div>
 
@@ -61,8 +60,7 @@
                         </div>
                         
                             <p class="right">Já tem uma conta? <a href="../../public/index.php" class="modal-trigger">Entrar</a></p>
-                            <input type="submit" name="submit" value="cadastrar" class="btn left col s12 deep-purple lighten-3">
-                
+                            <input type="submit" name="submit" value="cadastrar" class="btn left col s12 deep-purple lighten-1">
                         <div class="clearfix"></div>
                         </div>
                     </form>
