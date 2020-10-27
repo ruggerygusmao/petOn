@@ -1,0 +1,11 @@
+body{
+    background-image: url('../img/pets.jpg');
+    background-size: cover;
+    background-position: center;
+    
+} 
+
+.card{
+    margin-top: 130px;
+    background: rgba(0, 0, 0, .6);
+}
