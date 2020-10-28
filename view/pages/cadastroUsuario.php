@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col l3 m3 s12"></div>
                 <div class="col l6 m6 s12">
-                    <form action="../../config/inserirUsuario.php" method="POST" id="formcadastrousuario" autocomplete="off">
+                    <form action="../../config/inserirUsuario.php" method="POST" id="formcadastrousuario" onsubmit="return false">
                         <div class="card-panel z-depth-5">
                             <p class="center"><i class="large material-icons">pets</i></p>
                             <h5 class="center">Crie a sua conta. É grátis!</h5>
@@ -44,13 +44,13 @@
                         <div class="input-field">
                             <i class="material-icons prefix">local_phone</i>
                             <input type="text" name="telefone" id="telefone">
-                            <label for="telefone">Digite seu telefone (somente números com DDD)</label>
+                            <label for="telefone">Digite seu telefone (somente numeros)</label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" name="cep" id="cep">
-                            <label for="cep">Digite o CEP de sua residência</label>
+                            <input type="text" name="cep" id="cep" maxlength="8">
+                            <label for="cep">Digite o CEP de sua residência (somente números)</label>
                         </div>
 
                         <div class="input-field">
