@@ -93,7 +93,7 @@ html {
     color: #fff;
 }
 
-/*Customização da validação do formulario de cadastro do usuario - JQuery Validate*/
+/*Customização da validação do formulario de cadastro do usuario - JQuery Validate
 label.error{
     text-align: center;
     font-size: 15px;
@@ -102,3 +102,4 @@ label.error{
 .error{
     color: red;
 }
+*/

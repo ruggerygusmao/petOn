@@ -31,36 +31,36 @@
 
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" name="nome" id="nome" placeholder="Digite seu primeiro nome">
-                            <label  for="nome"></label>
+                            <input type="text" name="nome" id="nome">
+                            <label  for="nome">Digite seu primeiro nome</label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" id="email" class="validate" placeholder="Digite seu e-mail">
-                            <label for="email"></label>
+                            <input type="email" name="email" id="email">
+                            <label for="email">Digite seu e-mail</label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">local_phone</i>
-                            <input type="text" name="telefone" id="telefone" class="validate">
+                            <input type="text" name="telefone" id="telefone">
                             <label for="telefone">Digite seu telefone (somente números com DDD)</label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" name="cep" id="cep" class="validate">
+                            <input type="text" name="cep" id="cep">
                             <label for="cep">Digite o CEP de sua residência</label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">vpn_key</i>
-                            <input type="password" name="senha" id="senha" class="validate">
+                            <input type="password" name="senha" id="senha">
                             <label for="senha">Crie uma senha</label>
                         </div>
                         
-                            <p class="right">Já tem uma conta? <a href="../../public/index.php" class="modal-trigger">Entrar</a></p>
-                            <input type="submit" name="submit" value="cadastrar" class="btn left col s12 deep-purple lighten-1">
+                            <p class="right">Já tem uma conta? <a href="../../public/index.php">Entrar</a></p>
+                            <input type="submit" name="submit" value="cadastrar" class="deep-purple lighten-1 btn col s12">
                         <div class="clearfix"></div>
                         </div>
                     </form>
