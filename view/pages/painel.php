@@ -1,6 +1,8 @@
 <?php 
 include('verifica_login.php');
-?> 
+include('../layout/header.php');
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,4 +22,4 @@ include('verifica_login.php');
 </body>
 </html>
 
-<?php ?>
+<?php include('../layout/footer.php'); ?>
