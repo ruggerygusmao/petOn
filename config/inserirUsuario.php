@@ -45,11 +45,12 @@
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>">
             <script>
                 window.onload = function() {
-                    Swal.fire(
-                        "Sucesso!",
-                        "Usuário cadastrado com sucesso!",
-                        "success"
-                        )
+                    Swal.fire({
+                        title: "Usuário cadastrado com sucesso!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
                 };
             </script>
                 ';    

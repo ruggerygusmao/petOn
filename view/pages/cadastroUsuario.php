@@ -12,7 +12,7 @@
       <title>|| PetOn ||</title>
 </head>
 
-<body class="grey darken-3">
+<body>
     
     <div id="flayer">
     <div id="slayer">
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col l3 m3 s12"></div>
                 <div class="col l6 m6 s12">
-                    <form action="../../config/inserirUsuario.php" method="POST">
+                    <form action="../../config/inserirUsuario.php" method="POST" id="formcadastrousuario" autocomplete="off">
                         <div class="card-panel z-depth-5">
                             <p class="center"><i class="large material-icons">pets</i></p>
                             <h5 class="center">Crie a sua conta. É grátis!</h5>
@@ -31,20 +31,20 @@
 
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" name="nome" id="nome" class="validate" autocomplete="off">
-                            <label for="nome">Digite seu primeiro nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu primeiro nome">
+                            <label  for="nome"></label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" id="email" class="validate">
-                            <label for="email">Digite seu e-mail</label>
+                            <input type="email" name="email" id="email" class="validate" placeholder="Digite seu e-mail">
+                            <label for="email"></label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">local_phone</i>
                             <input type="text" name="telefone" id="telefone" class="validate">
-                            <label for="telefone">Digite seu telefone</label>
+                            <label for="telefone">Digite seu telefone (somente números com DDD)</label>
                         </div>
                   
                         <div class="input-field">
@@ -69,7 +69,6 @@
         </div>
     </div>
 </div>
-
 <?php
     include('../layout/footer.php');
 ?>

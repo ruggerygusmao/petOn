@@ -14,4 +14,26 @@ setTimeout(function(){
     document.querySelector("#flayer").classList.remove("progress");
     document.querySelector("#slayer").classList.remove("indeterminate");
     document.querySelector("#content").style.display="block";
-},1500)
+},1000)
+
+//Validação do formulario de cadastro de usuario
+$("#formcadastrousuario").validate({
+    rules: {
+        nome: {
+            required: true,
+            minlength: 3,
+            maxlength: 60
+        }
+    },
+    messages: {
+        nome: {
+            required: function required(){
+                M.toast({html: 'O campo nome é obrigatório!', classes: 'rounded'})
+            },
+            minlength: function minlength() {
+                M.toast({html: 'Por favor, preencha ao menos 3 caracteres no campo nome.', classes: 'rounded'})
+            }
+            
+        }
+    }
+});

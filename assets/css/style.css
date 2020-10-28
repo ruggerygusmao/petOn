@@ -92,3 +92,13 @@ html {
     background-color: #fbc02d;
     color: #fff;
 }
+
+/*Customização da validação do formulario de cadastro do usuario - JQuery Validate*/
+label.error{
+    text-align: center;
+    font-size: 15px;
+    color: red;
+  }
+.error{
+    color: red;
+}
