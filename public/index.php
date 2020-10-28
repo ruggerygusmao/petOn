@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>|| Projeto petOn ||</title>
 </head>
-<body>
+<body class="body">
 
 <div class="row login">
     <div class="col s12 m4 offset-m4">

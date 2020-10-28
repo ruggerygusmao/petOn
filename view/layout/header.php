@@ -28,7 +28,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="sass.html">Alterar dados pessoais</a></li>
             <li><a href="badges.html">Alterar dados do pet</a></li>
-            <li><a href="badges.html">Sair</a></li>
+            <li><a href="../pages/logout.php">Sair</a></li>
         </ul>
     </div>
   </nav>
@@ -38,5 +38,5 @@
         <li><a href="#"><i class="material-icons">home</i>Voltar para o painel</a></li>
         <li><a href="#"><i class="material-icons">edit</i>Alterar dados pessoais</a></li>
         <li><a href="#"><i class="material-icons">pets</i>Alterar dados do pet</a></li>
-        <li><a href="#"><i class="material-icons">exit_to_app</i>Sair</a></li>
+        <li><a href="../pages/logout.php"><i class="material-icons">exit_to_app</i>Sair</a></li>
     </ul>

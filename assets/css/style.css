@@ -1,10 +1,15 @@
-body{
+.body{
     background-image: url('../img/pets.jpg');
     background-size: cover;
     background-position: center;
-    
 } 
 
+/*Centraliza os links do painel*/
+.page{
+    margin-top: 150px;
+}
+
+/*Centraliza o card*/
 .card{
     margin-top: 40px;
     background: rgba(0, 0, 0, .6);
