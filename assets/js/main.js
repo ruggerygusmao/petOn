@@ -22,7 +22,7 @@ setTimeout(function(){
 var email = $("#email"); 
     email.blur(function() { 
         $.ajax({ 
-            url: '../../config/inserirUsuario.php', 
+            url: '../../config/verificaEmail.php', 
             type: 'POST', 
             data:{"email" : email.val()},
                 success: function(data) { 
@@ -31,10 +31,26 @@ var email = $("#email");
                     //$("#resposta").text(data.email);
                     setTimeout(function(){
                         M.toast({html: data.email, classes: 'rounded'})
-                    }, 1000) 
+                    }, 500) 
                 }
     })
 });
+
+//Verifica o CEP e retorna bairro, cidade e estado para o usuário
+var cep = $("#cep"); 
+    cep.blur(function() { 
+        $.ajax({ 
+            url: '../../config/buscaCEP.php', 
+            type: 'POST', 
+            data:{"cep" : cep.val()},
+                success: function(data) { 
+                    //console.log(data); 
+                    data = $.parseJSON(data); 
+                    $("#endereco").text(data.cep);
+                    $("#endereco").css("text-align" , "center");
+                }
+        })
+    });
 
 //Validação do formulario de cadastro de usuario
 $(document).ready(function(){
@@ -84,8 +100,30 @@ $(document).ready(function(){
                 type: "POST",
                 url: "../../config/inserirUsuario.php",
                 data: dados,
-                success: function( data ){
-                    
+                error: function(){
+                    alert('Erro: Inserir Registo!!');
+                },
+                success: function( result ){
+                    if($.trim(result) == "1"){
+
+                        setTimeout(function(){
+                            window.location.href = "http://localhost/peton/public/index.php"
+                        }, 3000)
+    
+                        Swal.fire({
+                            title: "Usuário cadastrado com sucesso!",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    }else{
+                        Swal.fire({
+                            title: "Não possível efetuar o cadastro! Confira os dados e tente novamente.",
+                            icon: "error",
+                            showConfirmButton: true,
+                        })
+                    }
+                    /*
                     setTimeout(function(){
                         window.location.href = "http://localhost/peton/public/index.php"
                     }, 3000)
@@ -96,6 +134,7 @@ $(document).ready(function(){
                         showConfirmButton: false,
                         timer: 3000
                     })
+                    */
                     
                 }
             });

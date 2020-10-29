@@ -1,5 +1,6 @@
 <?php
     include('conexao.php');
+    include('buscaCEP.php');
     include('password.php');
 
 
@@ -13,12 +14,26 @@ if(isset($_POST['email'])){
     $sql = mysqli_query($conexao, "SELECT * FROM usuario WHERE email = '{$email}'") or print mysql_error();
  
     #Se o retorno for maior do que zero, diz que já existe um.
-    if(mysqli_num_rows($sql)>0) 
-        echo json_encode(array('email' => 'Já existe um usuário cadastrado com este email')); 
-    else 
-        echo json_encode(array('email' => 'E-mail disponível.' ));
+    if(mysqli_num_rows($sql)>0) {
+        //echo json_encode(array('email' => 'Já existe um usuário cadastrado com este email')); 
+        
+    }else{ 
+        $nomeUsuario = $_POST['nome'];
+        $telefone = $_POST['telefone'];
+        $cepform = $_POST['cep'];
+        $senha = $_POST['senha'];
+
+        
+            $insertUsuario = "INSERT INTO usuario (nome, email, telefone, senha, bairro, cidade, estado) VALUES ('$nomeUsuario', '$email', '$telefone', sha1('$senha'), '$endereco->bairro', '$endereco->localidade', '$endereco->uf')";
+            $result = mysqli_query($conexao, $insertUsuario);
+            echo "1";
+        
+        
+    }
+        //echo json_encode(array('email' => 'Cadastro feito com sucesso!.' ));
 }
 
+        
     /*
     $nomeUsuario = $_POST['nome'];
     $email = $_POST['email'];
