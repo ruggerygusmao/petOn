@@ -34,18 +34,17 @@
             ?>
             <!-- CÓDIGO PHP -->
       <div class="card-content">
-        <form action="login.php" method="POST">
+        <form id="" action="login.php" method="POST" autocomplete="off">
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" name="email" type="email" class="validate white-text" class="validate">
-                <label for="email">Email</label>
-                <span class="helper-text" data-error="" data-success=""></span>
+                <input id="em" name="em" type="email" class="validate white-text" required> 
+                <label for="em">Email</label>
+                <!--<span class="helper-text" data-error="" data-success=""></span>-->
             </div>
           </div>
-
             <div class="row">
               <div class="input-field col s12">
-                  <input id="senha" name="senha" type="password" class="validate white-text text-darken-2" class="validate">
+                  <input id="pass" name="senha" type="password" class="validate white-text text-darken-2" required>
                   <label for="senha">Senha</label>
                   <span class="helper-text" data-error="" data-success=""></span>
               </div>
@@ -64,7 +63,12 @@
       </div>
   </div>
 </div>
+<?php
+    include('../view/layout/footer.php');
+?>
   <!-- Compiled and minified JavaScript -->
   <script src="../assets/materialize/js/materialize.min.js"></script>
+  
 </body>
+
 </html>
