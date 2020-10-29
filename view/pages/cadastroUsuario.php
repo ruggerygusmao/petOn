@@ -22,41 +22,41 @@
         <div class="row">
             <div class="col l3 m3 s12"></div>
                 <div class="col l6 m6 s12">
-                    <form action="../../config/inserirUsuario.php" method="POST" id="formcadastrousuario" onsubmit="return false">
+                    <form action="../../config/inserirUsuario.php" method="POST" id="formcadastrousuario" autocomplete="off">
                         <div class="card-panel z-depth-5">
                             <p class="center"><i class="large material-icons">pets</i></p>
                             <h5 class="center">Crie a sua conta. É grátis!</h5>
-                            <div class="alert" id="alert"></div>
                             <br>
 
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" name="nome" id="nome">
-                            <label  for="nome">Digite seu primeiro nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required maxlength="60" autofocus>
+                            <label  for="nome">Nome</label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" id="email">
-                            <label for="email">Digite seu e-mail</label>
+                            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                            <div id="resposta" class="alert"></div>
+                            <label for="email">E-mail</label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">local_phone</i>
-                            <input type="text" name="telefone" id="telefone">
-                            <label for="telefone">Digite seu telefone (somente numeros)</label>
+                            <input type="text" name="telefone" id="telefone" placeholder="apenas números com DDD" required>
+                            <label for="telefone">Telefone</label>
                         </div>
                   
                         <div class="input-field">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" name="cep" id="cep" maxlength="8">
-                            <label for="cep">Digite o CEP de sua residência (somente números)</label>
+                            <input type="text" name="cep" id="cep" maxlength="8" placeholder="Digite o CEP de sua residência - apenas números" required>
+                            <label for="cep">CEP</label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">vpn_key</i>
-                            <input type="password" name="senha" id="senha">
-                            <label for="senha">Crie uma senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Crie uma senha de acesso" required>
+                            <label for="senha">Senha</label>
                         </div>
                         
                             <p class="right">Já tem uma conta? <a href="../../public/index.php">Entrar</a></p>

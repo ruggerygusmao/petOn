@@ -6,6 +6,7 @@ const instancesSidenav = M.Sidenav.init(elemsSidenav, {
 
 
 //Ativa a barra de progresso (preloader) antes de carregar o formulário de cadastro
+/*
 document.querySelector("#content").style.display="none";
     document.querySelector("#flayer").classList.add("progress");
     document.querySelector("#slayer").classList.add("indeterminate");
@@ -15,25 +16,25 @@ setTimeout(function(){
     document.querySelector("#slayer").classList.remove("indeterminate");
     document.querySelector("#content").style.display="block";
 },1000)
-
+*/
 
 //Verifica se já existe e-mail no banco
-$(document).keydown(function(){
-    var email = $("#email"); 
-        email.blur(function() { 
-            $.ajax({ 
-                url: "../../config/inserirUsuario.php", 
-                type: "POST", 
-                data:{"email" : email.val()}, 
-                    success: function(data) {
-                        console.log("existe")
-                    },
-                    error: function(){
-                        console.log("nao existe")
-                    }
-            }); 
-        }); 
-})
+var email = $("#email"); 
+    email.blur(function() { 
+        $.ajax({ 
+            url: '../../config/inserirUsuario.php', 
+            type: 'POST', 
+            data:{"email" : email.val()},
+                success: function(data) { 
+                    //console.log(data); 
+                    data = $.parseJSON(data); 
+                    //$("#resposta").text(data.email);
+                    setTimeout(function(){
+                        M.toast({html: data.email, classes: 'rounded'})
+                    }, 1000) 
+                }
+    })
+});
 
 //Validação do formulario de cadastro de usuario
 $(document).ready(function(){
@@ -60,35 +61,21 @@ $(document).ready(function(){
         },
         messages: {
             nome: {
-                required: function required(){
-                    M.toast({html: 'O campo NOME é obrigatório!', classes: 'rounded'})
-                },
-                minlength: function minlength() {
-                    M.toast({html: 'Por favor, preencha ao menos 3 caracteres no campo nome.', classes: 'rounded'})
-                }
+                required: 'Por favor, preencha o campo NOME.',
             },
             email: {
-                required: function required(){
-                    M.toast({html: 'O campo E-MAIL é obrigatório!', classes: 'rounded'})
-                },
-                email: function required(){
-                    M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
-                }
+                required: 'Por favor, preencha o campo E-MAIL.',
+                email: 'Digite um e-mail válido',
             },
             telefone: {
-                required: function required(){
-                    M.toast({html: 'O campo TELEFONE é obrigatório!', classes: 'rounded'})
-                }
+                required: 'Por favor, preencha o campo TELEFONE.',
             },
             cep: {
-                required: function required(){
-                    M.toast({html: 'O campo CEP é obrigatório!', classes: 'rounded'})
-                }
+                required: 'Por favor, preencha o campo CEP.',
+                number: 'Por favor, insira apenas números.',
             },
             senha: {
-                required: function required(){
-                    M.toast({html: 'O campo SENHA é obrigatório!', classes: 'rounded'})
-                }
+                required: 'Por favor, preencha o campo SENHA.',
             }
         },
         submitHandler: function( form ){
@@ -97,12 +84,12 @@ $(document).ready(function(){
                 type: "POST",
                 url: "../../config/inserirUsuario.php",
                 data: dados,
-                success: function( data )
-                {
-
+                success: function( data ){
+                    
                     setTimeout(function(){
                         window.location.href = "http://localhost/peton/public/index.php"
                     }, 3000)
+
                     Swal.fire({
                         title: "Usuário cadastrado com sucesso!",
                         icon: "success",
@@ -120,3 +107,18 @@ $(document).ready(function(){
 //Máscara nos input form cadastro usuario
     $("#telefone").mask("(99) 9 9999-9999");
     //$("#cep").mask("99999-999");
+
+    /* Exibindo mensagens de erro do jQuery validate com o alert do materialize. Para ser guardado!
+    messages: {
+        nome: {
+            required: 'Preencha o campo nome',
+        },
+        email: {
+            required: function required(){
+                M.toast({html: 'O campo E-MAIL é obrigatório!', classes: 'rounded'})
+            },
+            email: function required(){
+                M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
+            }
+        },
+        */

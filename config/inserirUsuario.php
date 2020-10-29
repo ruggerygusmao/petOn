@@ -2,6 +2,24 @@
     include('conexao.php');
     include('password.php');
 
+
+    #Verifica se tem um email para pesquisa
+if(isset($_POST['email'])){ 
+ 
+    #Recebe o Email Postado
+    $email = $_POST['email'];
+ 
+    #Conecta banco de dados 
+    $sql = mysqli_query($conexao, "SELECT * FROM usuario WHERE email = '{$email}'") or print mysql_error();
+ 
+    #Se o retorno for maior do que zero, diz que já existe um.
+    if(mysqli_num_rows($sql)>0) 
+        echo json_encode(array('email' => 'Já existe um usuário cadastrado com este email')); 
+    else 
+        echo json_encode(array('email' => 'E-mail disponível.' ));
+}
+
+    /*
     $nomeUsuario = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
@@ -36,18 +54,6 @@
         echo "</pre>";
         */
 
-        $consulta = mysqli_query($conexao, "SELECT email FROM usuario WHERE email = '".$email."'") or print mysql_error();
-
-        #Se o retorno for maior do que zero, diz que já existe um.
-        if(mysqli_num_rows($consulta)>0) 
-            echo "ja existe"; 
-        else 
-            echo "nao existe";
-
-        //Persistência dos daos no banco
-        $sql = "INSERT INTO usuario (nome, email, telefone, senha, bairro, cidade, estado) VALUES ('$nomeUsuario', '$email', '$telefone', sha1('$senha'), '$endereco->bairro', '$endereco->localidade', '$endereco->uf')";
-        $inserir = mysqli_query($conexao, $sql);
-
         /* Função para validar novo usuário e mosrar msg de sucesso. Função desativada pois foi implementado o Ajax
         if(mysqli_affected_rows($conexao) != 0){
             echo '
@@ -79,4 +85,5 @@
             </script>
             ';    
         }*/
+        
 ?>
