@@ -196,4 +196,4 @@ function inserirFormulario(dados) {
             email: function required(){
                 M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
             }
-        },
+        },*/
