@@ -6,7 +6,7 @@ if(empty($_POST['email']) || empty($_POST['senha'])){
     header('Location: index.php');
 }
 $email = $_POST["email"];
-$senha = $_POST["senha"];
+$senha = sha1($_POST["senha"]);
 
 $query = mysqli_query($conexao,"SELECT * FROM usuario WHERE email ='$email' and senha='$senha'");
 

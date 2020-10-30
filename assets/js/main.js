@@ -197,7 +197,3 @@ function inserirFormulario(dados) {
                 M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
             }
         },
-        setTimeout(function(){
-                        window.location.href = "http://localhost/peton/public/index.php"
-                    }, 3000)
-                    */
