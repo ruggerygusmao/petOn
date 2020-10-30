@@ -18,7 +18,7 @@ setTimeout(function(){
 },1000)
 */
 
-//Verifica se já existe e-mail no banco
+//Verifica se já existe e-mail cadastrado no banco
 var email = $("#email"); 
     email.blur(function() { 
         $.ajax({ 
@@ -33,10 +33,23 @@ var email = $("#email");
                         M.toast({html: data.email, classes: 'rounded'})
                     }, 500) 
                 }
-    })
-});
+        })
+    });
 
 //Verifica o CEP e retorna bairro, cidade e estado para o usuário
+$("#cep").blur(function(){
+    var cep = $("#cep").val()
+    $.ajax({ 
+        url: 'http://viacep.com.br/ws/' + cep + "/json", 
+        type: 'GET', 
+        async: false
+        }).done(function(data){
+            $("#endereco").text(data[bairro])
+        }).fail(function(){
+            $("#endereco").text("falha")
+        })
+})
+/*
 var cep = $("#cep"); 
     cep.blur(function() { 
         $.ajax({ 
@@ -51,7 +64,7 @@ var cep = $("#cep");
                 }
         })
     });
-
+*/
 //Validação do formulario de cadastro de usuario
 $(document).ready(function(){
     $("#formcadastrousuario").validate({
@@ -69,7 +82,7 @@ $(document).ready(function(){
             },
             cep: {
                 required: true,
-                number: true
+                number: false
             },
             senha: {
                 required: true
@@ -77,21 +90,21 @@ $(document).ready(function(){
         },
         messages: {
             nome: {
-                required: 'Por favor, preencha o campo NOME.',
+                required: 'Por favor, preencha o campo NOME',
             },
             email: {
-                required: 'Por favor, preencha o campo E-MAIL.',
+                required: 'Por favor, preencha o campo E-MAIL',
                 email: 'Digite um e-mail válido',
             },
             telefone: {
-                required: 'Por favor, preencha o campo TELEFONE.',
+                required: 'Por favor, preencha o campo TELEFONE',
             },
             cep: {
-                required: 'Por favor, preencha o campo CEP.',
-                number: 'Por favor, insira apenas números.',
+                required: 'Por favor, preencha o campo CEP',
+                number: 'Por favor, insira apenas números',
             },
             senha: {
-                required: 'Por favor, preencha o campo SENHA.',
+                required: 'Por favor, preencha o campo SENHA',
             }
         },
         submitHandler: function( form ){
@@ -100,49 +113,73 @@ $(document).ready(function(){
                 type: "POST",
                 url: "../../config/inserirUsuario.php",
                 data: dados,
-                error: function(){
-                    alert('Erro: Inserir Registo!!');
-                },
-                success: function( result ){
-                    if($.trim(result) == "1"){
+                async: false
+            }).then(sucesso, falha);
 
-                        setTimeout(function(){
-                            window.location.href = "http://localhost/peton/public/index.php"
-                        }, 3000)
-    
-                        Swal.fire({
-                            title: "Usuário cadastrado com sucesso!",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                    }else{
-                        Swal.fire({
-                            title: "Não possível efetuar o cadastro! Confira os dados e tente novamente.",
-                            icon: "error",
-                            showConfirmButton: true,
-                        })
-                    }
-                    /*
+            function sucesso(data) {
+                $sucesso = $.parseJSON(data)["sucesso"];
+                $mensagem = $.parseJSON(data)["mensagem"];
+
+                if($sucesso){
                     setTimeout(function(){
                         window.location.href = "http://localhost/peton/public/index.php"
                     }, 3000)
-
                     Swal.fire({
-                        title: "Usuário cadastrado com sucesso!",
-                        icon: "success",
+                        icon: 'success',
+                        title: $mensagem,
                         showConfirmButton: false,
                         timer: 3000
                     })
-                    */
-                    
+                    }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: $mensagem,
+                        showConfirmButton: true
+                    })
                 }
-            });
-            return false;
-        }
-    });
-})
+            }
 
+            function falha() {
+                console.log("erro");
+            }
+        }
+    })
+})    
+
+/*
+$('#formcadastrousuario').submit(function(e) {
+    //Desativa a action do form
+    e.preventDefault();
+
+    var formulario = $(this);
+    var retorno = inserirFormulario(formulario)
+});
+
+function inserirFormulario(dados) {
+    $.ajax({
+        type:"POST",
+        data:dados.serialize(),  
+        url:"../../config/teste.php",
+        async:false
+    }).then(sucesso,falha);
+    
+    function sucesso(data) {
+        $sucesso = $.parseJSON(data)["sucesso"];
+        $mensagem = $.parseJSON(data)["mensagem"];
+        
+        if($sucesso) {
+            $('#msgretorno p').html($mensagem);
+        } else {
+            $('#msgretorno p').html($mensagem);
+        }
+    }
+    
+    function falha() {
+        console.log("erro");
+    }
+
+}
+*/
 //Máscara nos input form cadastro usuario
     $("#telefone").mask("(99) 9 9999-9999");
     //$("#cep").mask("99999-999");
@@ -160,4 +197,7 @@ $(document).ready(function(){
                 M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
             }
         },
-        */
+        setTimeout(function(){
+                        window.location.href = "http://localhost/peton/public/index.php"
+                    }, 3000)
+                    */

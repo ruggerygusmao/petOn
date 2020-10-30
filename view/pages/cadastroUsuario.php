@@ -49,7 +49,7 @@
                   
                         <div class="input-field">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" name="cep" id="cep" maxlength="8" required>
+                            <input type="text" name="cep" id="cep" maxlength="9" required>
                             <label for="cep">CEP</label>
                             <div id="endereco" class="endereco"></div>
                         </div>
@@ -62,6 +62,7 @@
                         
                             <p class="right">Já tem uma conta? <a href="../../public/index.php">Entrar</a></p>
                             <input type="submit" name="submit" value="cadastrar" class="deep-purple lighten-1 btn col s12">
+                            
                         <div class="clearfix"></div>
                         </div>
                     </form>

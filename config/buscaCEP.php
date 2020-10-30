@@ -8,13 +8,13 @@ $bairro = $endereco->bairro;
 $cidade = $endereco->localidade;
 $estado = $endereco->uf;
 
+/*
 if (empty($bairro) || empty($cidade) || empty($estado)) {
     echo json_encode(array('cep' => "Não conseguimos localizar seu endereço." ));
 }else{
     echo json_encode(array('cep' => "$bairro, $cidade -  $estado" ));
 }
-
-
+*/
 
 function get_endereco($cep){
             
@@ -24,5 +24,4 @@ function get_endereco($cep){
     
     $xml = simplexml_load_file($url);
     return $xml;
-    
 }
