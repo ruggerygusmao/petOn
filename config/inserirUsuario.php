@@ -15,7 +15,7 @@
 
         if (mysqli_num_rows($pesquisarUsuario) > 0) {
             $retorno["sucesso"] = false;
-            $retorno["mensagem"] = "Falha ao cadastrar, verifique os dados e tente novamente.";
+            $retorno["mensagem"] = "Falha ao efetuar o cadastro. Verifique os dados e tente novamente.";
         } else {
             $inserirUsuario = "INSERT INTO usuario (nome, email, telefone, senha, bairro, cidade, estado) VALUES ('$nomeUsuario', '$email', '$telefone', sha1('$senha'), '$bairro', '$cidade', '$estado')";
         
@@ -23,7 +23,7 @@
 
             if($operacao_insercao) {
                 $retorno["sucesso"] = true;
-                $retorno["mensagem"] = "Usuário inserido com sucesso.";
+                $retorno["mensagem"] = "Cadastro realizado com sucesso!";
             } else {
                 
             }

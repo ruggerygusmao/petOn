@@ -18,36 +18,40 @@ setTimeout(function(){
 },1000)
 */
 
-//Verifica se já existe e-mail cadastrado no banco
-var email = $("#email"); 
-    email.blur(function() { 
-        $.ajax({ 
-            url: '../../config/verificaEmail.php', 
-            type: 'POST', 
-            data:{"email" : email.val()},
-                success: function(data) { 
-                    //console.log(data); 
-                    data = $.parseJSON(data); 
-                    //$("#resposta").text(data.email);
-                    setTimeout(function(){
-                        M.toast({html: data.email, classes: 'rounded'})
-                    }, 500) 
-                }
-        })
-    });
+//Verifica se já existe e-mail cadastrado no banco e retorna uma mensagem
+$("#email").blur(function () {
+    var email = $("#email");
+    $.ajax({
+        url: '../../config/verificaEmail.php',
+        type: 'POST',
+        data: { "email": email.val() },
+        success: function (data) {
+            //console.log(data); 
+            data = $.parseJSON(data);
+            $("#retornoMsgEmail p").text(data.email);
+            $("#retornoMsgEmail p").css("text-align", "center");
+            $("#retornoMsgEmail p").css("color", "red");
+            /*
+            setTimeout(function(){
+                M.toast({html: data.email, classes: 'rounded'})
+            }, 500) 
+            */
+        }
+    })
+});
 
 //Verifica o CEP e retorna bairro, cidade e estado para o usuário
-$("#cep").blur(function(){
+$("#cep").blur(function () {
     var cep = $("#cep").val()
-    $.ajax({ 
-        url: 'http://viacep.com.br/ws/' + cep + "/json", 
-        type: 'GET', 
+    $.ajax({
+        url: 'http://viacep.com.br/ws/' + cep + "/json",
+        type: 'GET',
         async: false
-        }).done(function(data){
-            $("#endereco").text(data[bairro])
-        }).fail(function(){
-            $("#endereco").text("falha")
-        })
+    }).done(function (data) {
+        $("#endereco").text(data[bairro])
+    }).fail(function () {
+        $("#endereco").text("falha")
+    })
 })
 /*
 var cep = $("#cep"); 
@@ -66,7 +70,7 @@ var cep = $("#cep");
     });
 */
 //Validação do formulario de cadastro de usuario
-$(document).ready(function(){
+$(document).ready(function () {
     $("#formcadastrousuario").validate({
         rules: {
             nome: {
@@ -90,25 +94,25 @@ $(document).ready(function(){
         },
         messages: {
             nome: {
-                required: 'Por favor, preencha o campo NOME',
+                required: 'Este campo é obrigatório',
             },
             email: {
-                required: 'Por favor, preencha o campo E-MAIL',
+                required: 'Este campo é obrigatório',
                 email: 'Digite um e-mail válido',
             },
             telefone: {
-                required: 'Por favor, preencha o campo TELEFONE',
+                required: 'Este campo é obrigatório',
             },
             cep: {
-                required: 'Por favor, preencha o campo CEP',
+                required: 'Este campo é obrigatório',
                 number: 'Por favor, insira apenas números',
             },
             senha: {
-                required: 'Por favor, preencha o campo SENHA',
+                required: 'Este campo é obrigatório',
             }
         },
-        submitHandler: function( form ){
-            var dados = $( form ).serialize();
+        submitHandler: function (form) {
+            var dados = $(form).serialize();
             $.ajax({
                 type: "POST",
                 url: "../../config/inserirUsuario.php",
@@ -120,8 +124,8 @@ $(document).ready(function(){
                 $sucesso = $.parseJSON(data)["sucesso"];
                 $mensagem = $.parseJSON(data)["mensagem"];
 
-                if($sucesso){
-                    setTimeout(function(){
+                if ($sucesso) {
+                    setTimeout(function () {
                         window.location.href = "http://localhost/peton/public/index.php"
                     }, 3000)
                     Swal.fire({
@@ -130,7 +134,7 @@ $(document).ready(function(){
                         showConfirmButton: false,
                         timer: 3000
                     })
-                    }else{
+                } else {
                     Swal.fire({
                         icon: 'error',
                         title: $mensagem,
@@ -144,56 +148,22 @@ $(document).ready(function(){
             }
         }
     })
-})    
+})
 
-/*
-$('#formcadastrousuario').submit(function(e) {
-    //Desativa a action do form
-    e.preventDefault();
-
-    var formulario = $(this);
-    var retorno = inserirFormulario(formulario)
-});
-
-function inserirFormulario(dados) {
-    $.ajax({
-        type:"POST",
-        data:dados.serialize(),  
-        url:"../../config/teste.php",
-        async:false
-    }).then(sucesso,falha);
-    
-    function sucesso(data) {
-        $sucesso = $.parseJSON(data)["sucesso"];
-        $mensagem = $.parseJSON(data)["mensagem"];
-        
-        if($sucesso) {
-            $('#msgretorno p').html($mensagem);
-        } else {
-            $('#msgretorno p').html($mensagem);
-        }
-    }
-    
-    function falha() {
-        console.log("erro");
-    }
-
-}
-*/
 //Máscara nos input form cadastro usuario
-    $("#telefone").mask("(99) 9 9999-9999");
-    //$("#cep").mask("99999-999");
+$("#telefone").mask("(99) 9 9999-9999");
+$("#cep").mask("99999-999");
 
-    /* Exibindo mensagens de erro do jQuery validate com o alert do materialize. Para ser guardado!
-    messages: {
-        nome: {
-            required: 'Preencha o campo nome',
+/* Exibindo mensagens de erro do jQuery validate com o alert do materialize. Para ser guardado!
+messages: {
+    nome: {
+        required: 'Preencha o campo nome',
+    },
+    email: {
+        required: function required(){
+            M.toast({html: 'O campo E-MAIL é obrigatório!', classes: 'rounded'})
         },
-        email: {
-            required: function required(){
-                M.toast({html: 'O campo E-MAIL é obrigatório!', classes: 'rounded'})
-            },
-            email: function required(){
-                M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
-            }
-        },*/
+        email: function required(){
+            M.toast({html: 'Digite um E-MAIL válido!', classes: 'rounded'})
+        }
+    },*/

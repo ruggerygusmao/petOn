@@ -10,9 +10,10 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>|| PetOn ||</title>
+
 </head>
 
-<body>
+<body class="grey darken-3">
     
     <div id="flayer">
     <div id="slayer">
@@ -20,8 +21,8 @@
     <div class="container formcadastrousuario" id="content">
         
         <div class="row">
-            <div class="col l3 m3 s12"></div>
-                <div class="col l6 m6 s12">
+            <div class="col l4 m3 s12"></div>
+                <div class="col l4 m6 s12">
                     <form action="" method="POST" id="formcadastrousuario" autocomplete="off">
                         <div class="card-panel z-depth-5">
                             <p class="center"><i class="large material-icons">pets</i></p>
@@ -31,14 +32,16 @@
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
                             <input type="text" name="nome" id="nome" required maxlength="60" autofocus>
-                            <label  for="nome">NOME DE USUÁRIO</label>
+                            <label  for="nome">NOME</label>
                         </div>
 
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
                             <input type="email" name="email" id="email" required>
-                            <div id="resposta" class="alert"></div>
                             <label for="email">E-MAIL</label>
+                            <div id="retornoMsgEmail">
+                                <p></p>
+                            </div>
                         </div>
                   
                         <div class="input-field">
@@ -51,7 +54,9 @@
                             <i class="material-icons prefix">location_on</i>
                             <input type="text" name="cep" id="cep" maxlength="9" required>
                             <label for="cep">CEP</label>
-                            <div id="endereco" class="endereco"></div>
+                            <div id="endereco">
+                                <p></p>
+                            </div>
                         </div>
 
                         <div class="input-field">
@@ -60,8 +65,9 @@
                             <label for="senha">SENHA</label>
                         </div>
                         
+                            
+                            <input type="submit" name="submit" value="cadastrar" class="btn deep-purple lighten-1 col s12">
                             <p class="right">Já tem uma conta? <a href="../../public/index.php">Entrar</a></p>
-                            <input type="submit" name="submit" value="cadastrar" class="deep-purple lighten-1 btn col s12">
                             
                         <div class="clearfix"></div>
                         </div>
@@ -71,6 +77,8 @@
         </div>
     </div>
 </div>
+
+
 <?php
     include('../layout/footer.php');
 ?>
