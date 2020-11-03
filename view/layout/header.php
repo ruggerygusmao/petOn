@@ -26,7 +26,7 @@
         
     
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Alterar dados pessoais</a></li>
+            <li><a href="../pages/alterarUsuario.php">Alterar dados pessoais</a></li>
             <li><a href="badges.html">Alterar dados do pet</a></li>
             <li><a href="../pages/logout.php">Sair</a></li>
         </ul>

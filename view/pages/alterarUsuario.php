@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<?php
 
-<head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../assets/materialize/css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../../assets/css/style.css" />
+include('../layout/header.php');
+include('../../config/conexao.php');
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>|| PetOn ||</title>
+?>
 
-</head>
-
-<body class="grey darken-3">
 
     <div id="flayer">
         <div id="slayer">
@@ -26,8 +16,8 @@
                     <div class="col l4 m6 s12">
                         <form method="POST" id="formcadastrousuario" autocomplete="off">
                             <div class="card-panel z-depth-5">
-                                <p class="center"><i class="large material-icons">pets</i></p>
-                                <h5 class="center">Crie a sua conta. É grátis!</h5>
+                                <p class="center"><i class="medium material-icons">edit</i></p>
+                                <h5 class="center">Meu cadastro</h5>
                                 <br>
 
                                 <div class="input-field">
@@ -63,7 +53,13 @@
                                 <div class="input-field">
                                     <i class="material-icons prefix">vpn_key</i>
                                     <input type="password" name="senha" id="senha" required>
-                                    <label for="senha">SENHA</label>
+                                    <label for="senha">SENHA ANTIGA</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">vpn_key</i>
+                                    <input type="password" name="senha" id="senha" required>
+                                    <label for="senha">NOVA SENHA</label>
                                 </div>
 
                                 <input type="submit" name="submit" value="cadastrar" class="btn deep-purple lighten-1 col s12">

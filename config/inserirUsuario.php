@@ -30,4 +30,3 @@
         }
         echo json_encode($retorno);
     }
-?>
