@@ -89,7 +89,9 @@ $(document).ready(function () {
                 number: false
             },
             senha: {
-                required: true
+                required: true,
+                minlength: 4,
+                maxlength: 12
             }
         },
         messages: {
@@ -109,6 +111,8 @@ $(document).ready(function () {
             },
             senha: {
                 required: 'Este campo é obrigatório',
+                minlength: 'A senha deve ter entre 4 e 8 caracteres',
+                maxlength: 'A senha deve ter entre 4 e 8 caracteres',
             }
         },
         submitHandler: function (form) {

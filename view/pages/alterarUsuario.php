@@ -1,10 +1,29 @@
 <?php
-
-include('../layout/header.php');
-include('../../config/conexao.php');
-
+    include('../../public/login.php');
+    include('../layout/header.php');
 ?>
 
+<?php
+    //Consulta a tabela usuários
+    $user = "SELECT * ";
+    $user .= "FROM usuario";
+
+    if(isset($_POST["id"])) {
+        $id = $_POST["id"];
+        $user .= "WHERE usuario = {$id}";
+    } else {
+    
+    }
+
+    $con_usuario = mysqli_query($conexao, $user);
+
+    if (!$con_usuario) {
+        die("Erro na consulta");
+    }
+
+    $info_usuario = mysqli_fetch_assoc($con_usuario);
+    print_r($info_usuario);
+?>
 
     <div id="flayer">
         <div id="slayer">
@@ -22,7 +41,7 @@ include('../../config/conexao.php');
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <input type="text" name="nome" id="nome" required maxlength="60" autofocus>
+                                    <input type="text" name="nome" id="nome" required maxlength="60" value="">
                                     <label for="nome">NOME</label>
                                 </div>
 

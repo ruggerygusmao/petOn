@@ -62,7 +62,7 @@
 
                                 <div class="input-field">
                                     <i class="material-icons prefix">vpn_key</i>
-                                    <input type="password" name="senha" id="senha" required>
+                                    <input type="password" name="senha" id="senha" required minlength="4" maxlength="8">
                                     <label for="senha">SENHA</label>
                                 </div>
 

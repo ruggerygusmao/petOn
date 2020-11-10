@@ -45,7 +45,7 @@
             <div class="row">
               <div class="input-field col s12">
                   <input id="pass" name="senha" type="password" class="validate white-text text-darken-2" required>
-                  <label for="senha">Senha</label>
+                  <label for="pass">Senha</label>
                   <span class="helper-text" data-error="" data-success=""></span>
               </div>
             </div>

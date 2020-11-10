@@ -9,7 +9,7 @@
         $senha = $_POST['senha'];
         $email = $_POST['email'];
         
-        $pesquisarUsuario = mysqli_query($conexao, "SELECT * FROM usuario WHERE email = '{$email}'") or print mysql_error();
+        $pesquisarUsuario = mysqli_query($conexao, "SELECT * FROM usuario WHERE email = '{$email}'");
 
         $retorno = array();
 
